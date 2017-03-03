@@ -59,12 +59,11 @@ void SampleNoReplace(int k, int n, int *y, int *x)
 #ifndef SCYTHE_COMPILE_DIRECT    
     GetRNGstate();    
 #endif
-    for (i = 0; i < n; i++)
-	x[i] = i;
+    for (i = 0; i < n; i++) x[i] = i;
     for (i = 0; i < k; i++) {
-	j = (int)((double)n * RUNIF(0.0,1.0));
-	y[i] = x[j] + 1;
-	x[j] = x[--n];
+    	j = (int)((double)n * RUNIF(0.0,1.0));
+ 	    y[i] = x[j] + 1;
+ 	    x[j] = x[--n];
     }
 #ifndef SCYTHE_COMPILE_DIRECT    
     PutRNGstate();    

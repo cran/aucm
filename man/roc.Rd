@@ -14,7 +14,7 @@ ROC/AUC methods.
 \code{classification.error} computes classification error \cr
 }
 \usage{
-fast.auc (score, outcome, t0 = 0, t1 = 1, reverse.sign.if.nece = TRUE)
+fast.auc (score, outcome, t0 = 0, t1 = 1, reverse.sign.if.nece = TRUE, quiet = FALSE)
 computeRoc (score, outcome, reverse.sign.if.nece = TRUE)
 plotRoc(x, add = FALSE, type = "l", diag.line=TRUE,...)
 addRoc (x,...)
@@ -29,6 +29,7 @@ classification.error (score, outcome)
   \item{x}{a list of two elements: sensitivity and specificity.}
   \item{diag.line}{boolean. If TRUE, a diagonal line is plotted}
   \item{add}{boolean. If TRUE, add to existing plot. If FALSE, create a new plot.}
+  \item{quiet}{boolean}
   \item{type}{line type for \code{lines}}
   \item{...}{arguments passed to \code{plot} or \code{lines}}
 }

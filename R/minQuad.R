@@ -293,8 +293,8 @@ control.minQuad <- function(
 }
 
 # free memory allocated in C
-Free_minQuad_2 <- function(){.C("free_minQuad_2",package = "aucm")}
-Free_minQuad <- function(){.C("free_minQuad",package = "aucm")}
+Free_minQuad_2 <- function(){.C("free_minQuad_2",PACKAGE = "aucm")}
+Free_minQuad <- function(){.C("free_minQuad",PACKAGE = "aucm")}
 
 
 # objfun <- function(H,b,a,mem.efficient = FALSE,n1=0,n2=0)

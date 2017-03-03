@@ -147,19 +147,19 @@ trainauc.glm = function (fit, ...) {
 }
 
 
-fast.auc<-function(score, outcome, t0=0, t1=1, reverse.sign.if.nece=TRUE){
+fast.auc<-function(score, outcome, t0=0, t1=1, reverse.sign.if.nece=TRUE, quiet=FALSE){
     
     if (length(score)!=length(outcome)) stop("score and outcome do not have the same length")
     
    if (all(is.na(score)) | all(is.na(outcome))) {
     
         out=NA
-        warning("all score NA or all outcome NA")
+        if(!quiet) warning("all score NA or all outcome NA")
     
     } else {
     
         oo<-!is.na(score) & !is.na(outcome)
-        if (sum(oo)!=length(score)) warning("some score or outcome are NA")
+        if (sum(oo)!=length(score) & !quiet) warning("some score or outcome are NA")
         if (sum(oo)==0) {
             warning("no non-NA pair")
             return (NA)

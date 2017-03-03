@@ -1,4 +1,4 @@
-useDynLib(aucm)
+useDynLib(aucm, .registration = TRUE)
 
 export(coef.auc, predict.auc, ratio, ratio.auc, trainauc, ratio.glm, trainauc.auc, summary.auc, plot.rauc, nsv.rauc, nsv, vcov.rauc, print.auc, trainauc.glm) 
 
