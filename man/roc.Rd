@@ -18,7 +18,7 @@ fast.auc (score, outcome, t0 = 0, t1 = 1, reverse.sign.if.nece = TRUE, quiet = F
 computeRoc (score, outcome, reverse.sign.if.nece = TRUE)
 plotRoc(x, add = FALSE, type = "l", diag.line=TRUE,...)
 addRoc (x,...)
-classification.error (score, outcome)
+classification.error(score, outcome, threshold=NULL, verbose=FALSE)
 }
 \arguments{
   \item{score}{a vector. Linear combination or score.}
@@ -30,6 +30,8 @@ classification.error (score, outcome)
   \item{diag.line}{boolean. If TRUE, a diagonal line is plotted}
   \item{add}{boolean. If TRUE, add to existing plot. If FALSE, create a new plot.}
   \item{quiet}{boolean}
+  \item{threshold}{threshold}
+  \item{verbose}{boolean}
   \item{type}{line type for \code{lines}}
   \item{...}{arguments passed to \code{plot} or \code{lines}}
 }
@@ -57,12 +59,11 @@ score=c(rnorm(n/2,1), rnorm(n/2,0))
 outcome=rep(1:0, each=n/2)
 plotRoc(computeRoc(score, outcome))
 
-
-# test, fast.auc2 is a version without all the checking
-
-score=rnorm(1e5)
-outcome=rbinom(1e5,1,.5)
-system.time(for (i in 1:1e2) fast.auc(score,outcome)) # 4.9 sec
+# commented out b/c slower on pc and cause note when r cmd check
+## test, fast.auc2 is a version without all the checking
+#score=rnorm(1e5)
+#outcome=rbinom(1e5,1,.5)
+#system.time(for (i in 1:1e2) fast.auc(score,outcome)) # 4.9 sec
 #system.time(for (i in 1:1e2) fast.auc2(score,outcome)) # 3.8 sec
 
 

@@ -1,7 +1,7 @@
 59c7d52d2ebc727a48fbb8bda665e8a4 *ChangeLog
-28657d10b89ed08eaa265e32f5f0fcc2 *DESCRIPTION
+02f5ad3308f40047ead8d6ab9c8cffe7 *DESCRIPTION
 3c26448d35d80584021100a713723c68 *NAMESPACE
-8ce214058e1a74383b42d40a950f3d8e *R/auc.R
+2808e21d1914aa9a0b6c551a8303dd99 *R/auc.R
 4fa2ff7cd06083f67edc220ba9538c8d *R/dc_auc.R
 4f2021aca61cf8b80dc44da85908ab2f *R/eauc.R
 c249135c7c57ac6337622e4cf6413051 *R/get_K_Q.R
@@ -10,7 +10,7 @@ d8387d5c568aeaffa9ee17963c0898de *R/grid.auc.R
 770523b4c5315117767083e415535867 *R/minQuad.R
 fc0d2ad13d3c3aa7b5309f543750290f *R/rauc.R
 6e71bcb47f7f805db23053faa444ec17 *R/rlogit.r
-60f41a832c63db9e63bd860a31892176 *R/roc.R
+f09babd0318d068c3c69bd3e12ee14c9 *R/roc.R
 9da9cd2cb5c012f3976fef072cd5d6ad *R/sauc.R
 d5d3c1d1c51a8192896c99f8fe9cb415 *R/simulations.R
 a63efbfbb8896fb73f852e397a62777f *R/tuning.R
@@ -38,7 +38,7 @@ f3750c24029f24382859f024caa41cf7 *man/control.minQuad.Rd
 ce58a60cf5dec145ad1723b3cb1bf99e *man/ramp.f.Rd
 5065bd0a2970bb1b6f2a939e772ef832 *man/rauc.Rd
 518d023e9370b3785ba517708dcc3cd3 *man/rlogit.Rd
-0fed957b41d6203a397ce4a7cd16f81a *man/roc.Rd
+25b76f3c16153643ca2e02387bbabf69 *man/roc.Rd
 7c7a0e658f9eccbca7530dd516a74250 *man/sample.for.cv.Rd
 1c66fb67dd75edef9845c672223930ee *man/sauc.phi.Rd
 351250e51fb450ce083e06ff6e54ecae *man/simulations.Rd
@@ -80,4 +80,4 @@ e77d9b01b3d30a4953a264feca4136a0 *src/sort.c
 c17f50734abba90034f71296031252d7 *src/srauc_tron_decomp.c
 06ef3a6a6061dcebdfa1ce92cd646ef1 *src/working_set.c
 d463e38f196f1896a11f9ecab2f49b52 *src/working_set.h
-dcc7adb0be77f381c992812eb5461aca *tests/doRUnit.R
+459189b81d2fc0a317f47fb063415383 *tests/doRUnit.R

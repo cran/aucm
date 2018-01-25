@@ -30,13 +30,14 @@ addRoc<-function(x,...){
 }
 
 
-classification.error=function(score, outcome){
+classification.error=function(score, outcome, threshold=NULL, verbose=FALSE){
     
    if (all(is.na(score)) | all(is.na(outcome))) {
         res=NA
         warning("all score NA or all outcome NA")
     } else {
-        threshold=quantile(score, 1-mean(outcome), na.rm=TRUE)
+        if(is.null(threshold)) threshold=quantile(score, 1-mean(outcome), na.rm=TRUE)
+        if (verbose) myprint(threshold)        
         pred=as.numeric(score>threshold)
         res=mean(pred!=outcome)
     }

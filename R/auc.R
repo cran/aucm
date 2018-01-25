@@ -142,9 +142,7 @@ trainauc.auc=function(fit, training.data=NULL, ...) {
     } else NA
 } 
 
-trainauc.glm = function (fit, ...) {
-    fast.auc(fit$linear.predictors, fit$y)    
-}
+trainauc.glm = function (fit, ...) fast.auc(fit$linear.predictors, fit$y, ...)
 
 
 fast.auc<-function(score, outcome, t0=0, t1=1, reverse.sign.if.nece=TRUE, quiet=FALSE){
