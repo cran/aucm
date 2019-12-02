@@ -95,11 +95,11 @@ skin.orange = function(n,seed,noise=FALSE, add.outliers=FALSE){
     #plot(x1[,1], x1[,2], xlab="dim 1", ylab="dim 2")
     #points(x2[,1], x2[,2], col=2)
     dat = data.frame(y=rep(0:1, each=n), x=rbind(x1,x2))
-    names(dat)[-1]="x"%+%1:d
+    names(dat)[-1]="x"%.%1:d
     
     if(noise){
         dat=data.frame(dat, x=mvtnorm::rmvnorm(n*2, sigma = diag(rep(1,6)) ))
-        names(dat)[-1]="x"%+%1:(ncol(dat)-1)    
+        names(dat)[-1]="x"%.%1:(ncol(dat)-1)    
     }
     
     if (add.outliers){
@@ -491,7 +491,7 @@ sim.NL=function(n, type, seed=NULL, add.outliers=FALSE) {
         k=8; v=.5
         eta = k* ( sin(x[,1]*v*pi)+ cos(x[,1]*x[,2]*pi) + 3*x[,3]*x[,4] + x[,3]**2 + x[,4]**2)
                 
-    } else stop("type not supported: "%+% type)
+    } else stop("type not supported: "%.% type)
     y = rbern(n, expit(eta))
     
     x=scale(x)

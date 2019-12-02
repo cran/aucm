@@ -28,10 +28,10 @@ minQuad <- function(H,b,C = 1.0,n1=0,n2=0, mem.efficient = FALSE,alpha = NULL,
     
     if (!length(H)) stop("matrix 'H' has to be specified")
     if (!mem.efficient) {
-        if ((nrow(H)!=ncol(H)) || (nrow(H)!=n1n2)) stop("dim of H is not right: "%+%nrow(H)%+%" by "%+%ncol(H)%+%"should be "%+%n1n2%+%" by "%+%n1n2) 
+        if ((nrow(H)!=ncol(H)) || (nrow(H)!=n1n2)) stop("dim of H is not right: "%.%nrow(H)%.%" by "%.%ncol(H)%.%"should be "%.%n1n2%.%" by "%.%n1n2) 
     } else{
         if (is.null(n1) || is.null(n2)) stop("n1 and n2 have to be specified when memory.efficient = TRUE")
-        if ((nrow(H)!=ncol(H)) || (nrow(H)!=n1+n2)) stop("dim of H is not right: "%+%nrow(H)%+%" by "%+%ncol(H)%+%"should be "%+%n1+n2%+%" by "%+%n1+n2)
+        if ((nrow(H)!=ncol(H)) || (nrow(H)!=n1+n2)) stop("dim of H is not right: "%.%nrow(H)%.%" by "%.%ncol(H)%.%"should be "%.%n1+n2%.%" by "%.%n1+n2)
     } 
 
     # constraint in case of weights

@@ -1,4 +1,4 @@
-computeRoc<-function(score, outcome, reverse.sign.if.nece=TRUE){
+computeRoc<-function(score, outcome, reverse.sign.if.nece=TRUE, cutpoints=NULL){
     # removing na
     outcome=outcome[!is.na(score)]
     score=score[!is.na(score)]
@@ -8,10 +8,10 @@ computeRoc<-function(score, outcome, reverse.sign.if.nece=TRUE){
         if(fast.auc(score, outcome, FALSE)<.5) score=-score
     }
     
-    cutpoints<-c(-Inf,sort(unique(score)))
-    sensitivity<-sapply(cutpoints, function(ci) mean(score>ci & outcome)/mean(outcome))
-    specificity<-sapply(cutpoints, function(ci) mean(score<=ci & !outcome)/mean(!outcome))
-    list(sensitivity=sensitivity, specificity=specificity)
+    if(is.null(cutpoints)) cutpoints<-c(-Inf,sort(unique(score)))
+    sensitivity<-sapply(cutpoints, function(cutp) mean(score>cutp & outcome)/mean(outcome))
+    specificity<-sapply(cutpoints, function(cutp) mean(score<=cutp & !outcome)/mean(!outcome))
+    list(sensitivity=sensitivity, specificity=specificity, threshold=cutpoints)
 }
 
 

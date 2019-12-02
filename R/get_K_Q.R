@@ -19,7 +19,7 @@ get.X.diff.formula=function(formula, data, ...){
 
 getQ=function(K, n1, n2, call.C=TRUE, do.pred=FALSE){
     
-    if(ncol(K)!=n1+n2) stop("K dimension error: "%+%nrow(K)%+%" by "%+%ncol(K))
+    if(ncol(K)!=n1+n2) stop("K dimension error: "%.%nrow(K)%.%" by "%.%ncol(K))
     if (!do.pred & nrow(K)!=ncol(K)) stop("K dimension error 2")
     
     if (do.pred) {

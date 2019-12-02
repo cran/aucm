@@ -63,7 +63,7 @@ grid.auc=function(formula, dat, beta, approx.type=NULL, approx.param=1, lambda=0
             if (pAUC) out=out*nrow(tmp)*ncol(tmp)/(n1*n2)
             bounded=mean(tmp==1 | tmp==0)
             c(out, bounded)
-        } else stop("approx.type not supported: "%+% approx.type)
+        } else stop("approx.type not supported: "%.% approx.type)
         
         
     }) 

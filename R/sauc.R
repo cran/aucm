@@ -40,7 +40,7 @@ sauc.phi<-function(formula,dat,constrain.method="L2",h.method="Lin",start.method
             beta.init=rep(1, ncol(tmp)-1)
         } else if (start.method=="0") {
             beta.init=rep(0, ncol(tmp)-1)
-        } else stop("start.method not supported: "%+%start.method)
+        } else stop("start.method not supported: "%.%start.method)
     }
     
     Xint<-calXdiff(predictors,Y,d=length(beta.init))
@@ -52,19 +52,19 @@ sauc.phi<-function(formula,dat,constrain.method="L2",h.method="Lin",start.method
             h=n^(-1/3)*sd(drop(x_diff%*%normsq(beta.init)))
         } else if (constrain.method=="beta1"){
              h=n^(-1/3)*sd(drop(x_diff%*%normanc(beta.init)))
-        } else stop("constrain.method not supported: "%+%constrain.method)
+        } else stop("constrain.method not supported: "%.%constrain.method)
     } else if (h.method=="MH") {
         # Ma and Huang
         if (constrain.method=="L2") {
             h=min(1/sqrt(sum(Y==1)),1/sqrt(sum(Y==0)),quantile(abs(x_diff%*%normsq(beta.init)),0.05)/5)        
         } else if (constrain.method=="beta1"){
             h=min(1/sqrt(sum(Y==1)),1/sqrt(sum(Y==0)),quantile(abs(x_diff%*%normanc(beta.init)),0.05)/5)
-        } else stop("constrain.method not supported: "%+%constrain.method)
+        } else stop("constrain.method not supported: "%.%constrain.method)
     } else if (h.method=="Vexler") {
         h=(n1*n2)^(-0.1)
     } else if (is.numeric(h.method)) {
         h=h.method
-    } else stop("h.method not supported: "%+%h.method)
+    } else stop("h.method not supported: "%.%h.method)
     
     
     
@@ -80,7 +80,7 @@ sauc.phi<-function(formula,dat,constrain.method="L2",h.method="Lin",start.method
             } else if (constrain.method=="beta1") {
                 tmp=calAnchor.SGD(beta.init,x_diff, upper, h, verbose)
                 out=tmp[-length(tmp)]
-            } else stop("constrain.method not supported: "%+%constrain.method)
+            } else stop("constrain.method not supported: "%.%constrain.method)
         } else stop ("opt.method YH only implemented for two covariates")
         
     } else {
@@ -107,7 +107,7 @@ sauc.phi<-function(formula,dat,constrain.method="L2",h.method="Lin",start.method
                 #  if (!is.na(auc.init) & !is.na(auc.end) & auc.end<auc.init) out<-rep(NA,2)
             }  else out<-rep(NA,2)
             
-        } else stop("constrain.method not supported: "%+%constrain.method)
+        } else stop("constrain.method not supported: "%.%constrain.method)
     
     }    
     

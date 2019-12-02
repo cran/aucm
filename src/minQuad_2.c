@@ -34,15 +34,15 @@ double *Ka,*df;
 #ifdef DO_KAHAN
 double* Ka_bits;
 #endif
-}PTR_MNQD;
-PTR_MNQD state;
+}PTR_MNQD2;
+PTR_MNQD2 state2;
 
 void free_minQuad_2(){
-    if(state.H){free(state.H);state.H = NULL;}
-    if(state.Ka){free(state.Ka);state.Ka = NULL;}
-    if(state.df){free(state.df);state.df = NULL;}
+    if(state2.H){free(state2.H);state2.H = NULL;}
+    if(state2.Ka){free(state2.Ka);state2.Ka = NULL;}
+    if(state2.df){free(state2.df);state2.df = NULL;}
 #ifdef DO_KAHAN
-    if(state.Ka_bits){free(state.Ka_bits);state.Ka_bits=NULL;}
+    if(state2.Ka_bits){free(state2.Ka_bits);state2.Ka_bits=NULL;}
 #endif    
 }
 
@@ -130,14 +130,14 @@ void minQuad_2(
 	double MACHINE_DOUBLE_EPS = *machine_double_eps;
 	if(MACHINE_DOUBLE_EPS + 1.0 != 1.0)get_machine_double_eps(&MACHINE_DOUBLE_EPS);
     
-    memset(&state,0,sizeof(state));// all pointers set to NULL
+    memset(&state2,0,sizeof(state2));// all pointers set to NULL
     double* df = (double*)calloc(n1n2 , sizeof(double));if(!df){free_minQuad_2();return;}
-    state.df = df;
+    state2.df = df;
     double* Ka = (double*)calloc(n1n2 , sizeof(double));if(!Ka){free_minQuad_2();return;}
-    state.Ka = Ka;
+    state2.Ka = Ka;
     #ifdef DO_KAHAN
     double* Ka_bits = (double*)calloc(n1n2 , sizeof(double));if(!Ka_bits){free_minQuad_2();return;}
-    state.Ka_bits = Ka_bits;
+    state2.Ka_bits = Ka_bits;
     #endif    
     
 #ifdef DO_VLA
@@ -151,11 +151,11 @@ void minQuad_2(
         Q = (double**) calloc(n1n2,sizeof(double*));
         if(!Q){PRINTF("minQuad: Unable to allocate %lld(bytes)\n",n1n2*sizeof(double*));free_minQuad_2();return;}
         for(p = 0; p < n1n2; p++)Q[p] = _H + p*n1n2;
-        state.H = Q;
+        state2.H = Q;
     }else{
         K = (double**) calloc(n,sizeof(double*));if(!K){free_minQuad_2();return;}
         for(p = 0; p < n; p++)K[p] = _H + p*n;
-        state.H = K;
+        state2.H = K;
     }
 
 #endif

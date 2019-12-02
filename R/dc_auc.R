@@ -152,7 +152,7 @@ auc.dca=function(formula, data,
         if (method=="t") {
             # use tron and tron-decomposition to find solution
             if (type=="dcsauc") {
-                if (decomposition & tron.control$q>p) tron.control$q=p #stop("this cannot be: q>p "%+%tron.control$q%+%" "%+%p)
+                if (decomposition & tron.control$q>p) tron.control$q=p #stop("this cannot be: q>p "%.%tron.control$q%.%" "%.%p)
                 param=theta.k * 1 # *1 forces a value-copy instead of reference-copy
                 # using if in .C first argument leads to an error in R CMD check
                 if(decomposition)
@@ -359,14 +359,14 @@ rauc.dca.approx.gr = function(beta, X.diff, linear.coef.in.dca, epsilon) {
 
 
 #    # expressions for use with optim with deriv3
-#    eta.s="("%+% concatList("b"%+%1:p%+%"*x"%+%1:p%+%"","+") %+%")"
-#    S1.s="log(1+exp(-"%+%eta.s%+%"))/zeta"
-#    loss.s=S1.s%+%" + "%+%eta.s%+%"*S2.deriv.ij"
-#    loss.f=deriv3(parse(text=loss.s), "b"%+%1:p, c("b"%+%1:p,"x"%+%1:p,"S2.deriv.ij","zeta"))
+#    eta.s="("%.% concatList("b"%.%1:p%.%"*x"%.%1:p%.%"","+") %.%")"
+#    S1.s="log(1+exp(-"%.%eta.s%.%"))/zeta"
+#    loss.s=S1.s%.%" + "%.%eta.s%.%"*S2.deriv.ij"
+#    loss.f=deriv3(parse(text=loss.s), "b"%.%1:p, c("b"%.%1:p,"x"%.%1:p,"S2.deriv.ij","zeta"))
 #    
 #        # if we don't want to code the deriviative functions by hand, we can use deriv3, but we need to deal with vector parameters through string manipulation, but this can be a lot slower
-#        cri.s="sum(loss.f(" %+% concatList("beta["%+%1:p%+%"]",",") %+% "," %+% concatList("X.diff[,"%+%1:p%+%"]",",") %+% ",S2.deriv.ij,zeta)) + .5*lambda*sum(beta^2)"
-#        gr.s="colSums(attr(loss.f(" %+% "" %+% concatList("beta["%+%1:p%+%"]",",") %+% "," %+% concatList("X.diff[,"%+%1:p%+%"]",",") %+% ",S2.deriv.ij,zeta), \"gradient\")) + lambda*beta"                
+#        cri.s="sum(loss.f(" %.% concatList("beta["%.%1:p%.%"]",",") %.% "," %.% concatList("X.diff[,"%.%1:p%.%"]",",") %.% ",S2.deriv.ij,zeta)) + .5*lambda*sum(beta^2)"
+#        gr.s="colSums(attr(loss.f(" %.% "" %.% concatList("beta["%.%1:p%.%"]",",") %.% "," %.% concatList("X.diff[,"%.%1:p%.%"]",",") %.% ",S2.deriv.ij,zeta), \"gradient\")) + lambda*beta"                
 #        optim.res=optim(par=rep(1,p), fn = function(beta) eval(parse(text=cri.s)), gr = function(beta) eval(parse(text=gr.s)), 
 #              method="Nelder-Mead", control = list(), hessian = FALSE)
 

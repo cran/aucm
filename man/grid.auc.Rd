@@ -49,6 +49,11 @@ dat = sim.dat.1(n=200,seed=1)
 beta=cbind(4, 4*seq(-1,0,length=100))
 dim(beta)
 
+fit = eauc(y~x1+x2, dat)
+
+\dontrun{
+# not run due to r cmd check requirements
+
 par(mfrow=c(3,2))
 
 out1 = grid.auc (y~x1+x2, dat, beta, approx.param=1, loss=FALSE, t0=NULL, t1=NULL, lambda=0, 
@@ -88,6 +93,7 @@ lines(out7$pars[2,]/out7$pars[1,],out7$vals,type="l",col=2)
 out3$par
 out7$par
 
-fit = eauc(y~x1+x2, dat)
+}
+
 
 }

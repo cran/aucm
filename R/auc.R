@@ -99,18 +99,18 @@ print.auc=function(x, ...) {
         cat(a,"\n")
         
         if (a %in% c("eta", "linear.combination", "alpha.pred", "y")) {
-            print("vector of length "%+%length(x[[a]])%+%" ...", quote=FALSE)
+            print("vector of length "%.%length(x[[a]])%.%" ...", quote=FALSE)
         
         } else if (a=="X" | a=="K") {
-            print("matrix of dimension "%+%concatList(dim(x[[a]]), " x ")%+%" ...", quote=FALSE)
+            print("matrix of dimension "%.%concatList(dim(x[[a]]), " x ")%.%" ...", quote=FALSE)
         
         } else if (a=="coefficients") {
             if (length(x[[a]])>20) {
-                print("coefficients ... vector of length "%+%length(x[[a]])%+%" ...", quote=FALSE)
+                print("coefficients ... vector of length "%.%length(x[[a]])%.%" ...", quote=FALSE)
             } else print(x[[a]], quote=TRUE)
         
         } else if (a=="last.minQuad.fit") {
-            print("last minQuad x"%+%" ...", quote=FALSE)            
+            print("last minQuad x"%.%" ...", quote=FALSE)            
         
         } else {
             print(x[[a]], quote=TRUE)

@@ -15,7 +15,8 @@ ROC/AUC methods.
 }
 \usage{
 fast.auc (score, outcome, t0 = 0, t1 = 1, reverse.sign.if.nece = TRUE, quiet = FALSE)
-computeRoc (score, outcome, reverse.sign.if.nece = TRUE)
+computeRoc (score, outcome, reverse.sign.if.nece = TRUE, cutpoints
+         = NULL)
 plotRoc(x, add = FALSE, type = "l", diag.line=TRUE,...)
 addRoc (x,...)
 classification.error(score, outcome, threshold=NULL, verbose=FALSE)
@@ -30,6 +31,7 @@ classification.error(score, outcome, threshold=NULL, verbose=FALSE)
   \item{diag.line}{boolean. If TRUE, a diagonal line is plotted}
   \item{add}{boolean. If TRUE, add to existing plot. If FALSE, create a new plot.}
   \item{quiet}{boolean}
+  \item{cutpoints}{cutpoints}
   \item{threshold}{threshold}
   \item{verbose}{boolean}
   \item{type}{line type for \code{lines}}
@@ -57,7 +59,8 @@ These functions originally come from Thomas Lumley and Tianxi Cai et al.\cr
 n=1e2
 score=c(rnorm(n/2,1), rnorm(n/2,0))
 outcome=rep(1:0, each=n/2)
-plotRoc(computeRoc(score, outcome))
+# cannot print due to r cmd check
+#plotRoc(computeRoc(score, outcome))
 
 # commented out b/c slower on pc and cause note when r cmd check
 ## test, fast.auc2 is a version without all the checking

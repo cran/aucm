@@ -20,7 +20,7 @@
 // TRON DECLARATIONS
 //  min { f(x)=0.5*x'*A*x + g0'*x : xl <= x <= xu }
 // notation below: A = HESS, g0 = LIN
-extern int dtron(int n, double *x, double *xl, double *xu, double gtol, double frtol, double fatol, double fmin, int maxfev, double cgtol,int* convergence, int verbose,
+extern double dtron(int n, double *x, double *xl, double *xu, double gtol, double frtol, double fatol, double fmin, int maxfev, double cgtol,int* convergence, int verbose,
        int (*ugradhesptr)(int, double *, double *, double **), int (*ufvptr)(int, double *, double *)
 );
 static int nfev;

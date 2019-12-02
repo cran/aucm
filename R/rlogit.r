@@ -144,7 +144,7 @@ rlogit  <- function(formula, dat, const=0.5, kmax=1e3, maxhalf=10, verbose=FALSE
             newobj=mean(phiBY3(scores,y,const))
             oldobj=newobj
             gradBY3=colMeans((derphiBY3(scores,y,const)%*%matrix(1,ncol=p))*x)
-            h=-gradBY3+((gradBY3 %*% xistart) *xistart)
+            h=-gradBY3+(c(gradBY3 %*% xistart) *xistart)
             finalstep=h/sqrt(sum(h^2))
             xi1=xistart+finalstep
             xi1=xi1/(sum(xi1^2))

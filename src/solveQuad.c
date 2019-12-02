@@ -76,7 +76,8 @@ void solve_Quad(
     
     // initialization
     *v = 0.0;*convergence = 1;*iter = 0;
-    if(reltol < 0.0) reltol = 0.0;*epsilon = 2.0 * (reltol);
+    if(reltol < 0.0) reltol = 0.0;
+    *epsilon = 2.0 * (reltol);
     memcpy(a,_a,n1n2 * sizeof(double));
 
     int ip,jp,iq,jq;
@@ -215,7 +216,8 @@ void solve_Quad1(
   
   // initialization
   *v = 0.0;*convergence = 1;*iter = 0;
-  if(reltol < 0.0) reltol = 0.0;*epsilon = 2.0 * (reltol);
+  if(reltol < 0.0) reltol = 0.0;
+  *epsilon = 2.0 * (reltol);
   memcpy(a,alpha0,n * sizeof(double));
 
   for(i = 0;i < n;i++){
@@ -333,7 +335,8 @@ void solve_Quad_2(
   double reltol = *_reltol;    
   // initialization
   *v = 0.0;*convergence = 1;*iter = 0;
-  if(reltol < 0.0) reltol = 0.0;*epsilon = 2.0 * (reltol);
+  if(reltol < 0.0) reltol = 0.0;
+  *epsilon = 2.0 * (reltol);
   memcpy(_a,alpha0,n * sizeof(double));
   Qii = Qij = _Q;
   ai = _a;

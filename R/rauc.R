@@ -83,7 +83,7 @@ rauc=function (formula, dat, s=1, lambda=1, kernel="linear", para=NULL,
                     beta.init=rep(1, ncol(X1))
                 } else if (start.method=="0") {
                     beta.init=rep(0, ncol(X1))
-                } else stop("start.method not supported: "%+%start.method)
+                } else stop("start.method not supported: "%.%start.method)
             }                             
             if (verbose) myprint(beta.init)
             eta.init=X.diff%*%beta.init       
@@ -131,7 +131,7 @@ rauc=function (formula, dat, s=1, lambda=1, kernel="linear", para=NULL,
         
         # Krisz: for debugging 
         if(length(arg$return.data) && (arg$return.data == -1)) return(list(Q=Q,K=K,b=-0.5*b,n1=n1,n2=n2,Qx=Qx))
-        if(length(arg$SAVE) && arg$SAVE)dput(b,"b_iter_"%+%iter%+%".RDput")
+        if(length(arg$SAVE) && arg$SAVE)dput(b,"b_iter_"%.%iter%.%".RDput")
     
 ##      minQuad: optimize f(a) = 0.5 * a'Qa + b'a, 0 <= a <= C. Note the different parametrization from a'Qa-b'a        
         begin <- Sys.time()
@@ -140,7 +140,7 @@ rauc=function (formula, dat, s=1, lambda=1, kernel="linear", para=NULL,
         minQuad.elapsed[iter] <- as.double(difftime(end,begin,units = 'secs'))
         if(init.alpha.from.previous) alpha0 <- fit$alpha
 
-        if(length(arg$SAVE) && arg$SAVE)dput(alpha0,"a_iter_"%+%iter%+%".RDput")
+        if(length(arg$SAVE) && arg$SAVE)dput(alpha0,"a_iter_"%.%iter%.%".RDput")
 
         if (verbose) cat(iter)
         if (fit$convergence!=0){
@@ -193,13 +193,13 @@ rauc=function (formula, dat, s=1, lambda=1, kernel="linear", para=NULL,
         
     }  # end while loop
     
-    if (verbose & length(minQuad.nonconvergence.list)>0) print("minQuad did not converge in these iterations: "%+%concatList(minQuad.nonconvergence.list,","))    
+    if (verbose & length(minQuad.nonconvergence.list)>0) print("minQuad did not converge in these iterations: "%.%concatList(minQuad.nonconvergence.list,","))    
     if (fit$convergence!=0) {
         print("minQuad did not converge in the last iteration")
-        if (!verbose) print("minQuad did not converge in these iterations: "%+%concatList(minQuad.nonconvergence.list,","))        
+        if (!verbose) print("minQuad did not converge in these iterations: "%.%concatList(minQuad.nonconvergence.list,","))        
     }
     if (verbose) cat ("\n")
-    if (verbose) print("total time used: "%+%(Sys.time()-time0)%+%" "%+%attr((Sys.time()-time0),"units") )
+    if (verbose) print("total time used: "%.%(Sys.time()-time0)%.%" "%.%attr((Sys.time()-time0),"units") )
     
     
     
@@ -420,7 +420,7 @@ ramp.f=function(eta,s,loss=TRUE){
 #            
 #    }    
 #    
-#    if(verbose) print("total time used: "%+%(Sys.time()-time0)%+%" "%+%attr((Sys.time()-time0),"units")%+%", minQuad time used: "%+%minQuad.time%+%" "%+%attr(minQuad.time,"units"))
+#    if(verbose) print("total time used: "%.%(Sys.time()-time0)%.%" "%.%attr((Sys.time()-time0),"units")%.%", minQuad time used: "%.%minQuad.time%.%" "%.%attr(minQuad.time,"units"))
 #    
 #    result=list(
 #        converge=converge,

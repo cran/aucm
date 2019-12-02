@@ -1,7 +1,7 @@
 Package: aucm
 LazyLoad: yes
 LazyData: yes
-Version: 2018.1-24
+Version: 2019.12-1
 Title: AUC Maximization
 Authors@R: c(person("Youyi", "Fong", role = "cre", email = "youyifong@gmail.com"), person("Krisztian", "Sebestyen", role = "aut", email = "ksebestyen@gmail.com"), person("Shuxin", "Yin", role = "aut", email = "yinshuxin05@gmail.com"), person("Ying", "Huang", role = "aut", email = "yhuang124@gmail.com"), person("Alexandros", "Karatzoglou", role = "ctb"), person("Alex", "Smola", role = "ctb"), person("Kurt", "Hornik", role = "ctb"))
 Maintainer: Youyi Fong <youyifong@gmail.com>
@@ -10,7 +10,7 @@ Suggests: RUnit, mvtnorm
 Description: Implements methods for identifying linear and nonlinear marker combinations that maximizes the Area Under the AUC Curve (AUC).
 License: GPL-2
 NeedsCompilation: yes
-Packaged: 2018-01-24 23:00:25 UTC; Youyi
+Packaged: 2019-12-02 00:46:58 UTC; Youyi
 Author: Youyi Fong [cre],
   Krisztian Sebestyen [aut],
   Shuxin Yin [aut],
@@ -19,4 +19,4 @@ Author: Youyi Fong [cre],
   Alex Smola [ctb],
   Kurt Hornik [ctb]
 Repository: CRAN
-Date/Publication: 2018-01-25 18:31:48 UTC
+Date/Publication: 2019-12-02 09:20:02 UTC

@@ -76,7 +76,7 @@ tune.it=function(formula, dat.train, dat.tune, method, kernel, verbose=TRUE, ste
         params=expand.grid(lamcost=lamcosts, gamma=gammas)
     } else if (kernel=="l" | kernel=="q") {
         params=expand.grid(lamcost=lamcosts, gamma=gammas[2])
-    } else stop("kernel not supported: "%+%kernel)
+    } else stop("kernel not supported: "%.%kernel)
     res=f1(params)
     
     tmp=res[,which.max(res["tune",])]
@@ -84,7 +84,7 @@ tune.it=function(formula, dat.train, dat.tune, method, kernel, verbose=TRUE, ste
         res = tmp[c("lamcost","gamma")]
     } else if (kernel=="l" | kernel=="q") {
         res = tmp["lamcost"] # add drop=FALSE does not change things
-    } else stop("kernel not supported: "%+%kernel)
+    } else stop("kernel not supported: "%.%kernel)
     
     # doing the following violates some programming principle, dat.test is no longer an argument
 #    if (!is.null(dat.test)) {
@@ -92,7 +92,7 @@ tune.it=function(formula, dat.train, dat.tune, method, kernel, verbose=TRUE, ste
 #            fit = svmw::svml (formula, dat.train, cost=res["lamcost"], kernel=kernel, gamma=res["gamma"], fitted=FALSE)
 #            auc.train = fast.auc(predict(fit, dat.train), dat.train$y)
 #            auc.test = fast.auc(predict(fit, dat.test), dat.test$y)
-#        } else stop("method not supported: "%+%method)       
+#        } else stop("method not supported: "%.%method)       
 #        res=c(res, "auc.train"=auc.train, "auc.test"=auc.test)
 #    }
     
